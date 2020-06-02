@@ -34,7 +34,7 @@ public class OAuth2SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
-        //auth.userDetailsService(customUserDetailsService).passwordEncoder(encoder());
+        auth.userDetailsService(customUserDetailsService).passwordEncoder(encoder());
     }
 
     @Override
