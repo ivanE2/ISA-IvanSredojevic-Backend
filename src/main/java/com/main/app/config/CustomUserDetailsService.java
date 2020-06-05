@@ -10,12 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-
-/**
- * The custom implementation of the user details service, providing
- * user data from the system database for authorization.
- *
- */
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 

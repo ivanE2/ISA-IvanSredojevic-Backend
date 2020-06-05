@@ -14,7 +14,7 @@ import java.time.Instant;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Record extends  AbstractEntity {
+public class Record extends AbstractEntity {
 
     private String description;
 

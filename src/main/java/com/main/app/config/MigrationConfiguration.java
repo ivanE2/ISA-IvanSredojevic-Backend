@@ -11,7 +11,8 @@ public class MigrationConfiguration {
 
     @Bean
     FlywayMigrationInitializer flywayInitializer(Flyway flyway) {
-        return new FlywayMigrationInitializer(flyway, (f) ->{} );
+        return new FlywayMigrationInitializer(flyway, (f) -> {
+        });
     }
 
     @Bean

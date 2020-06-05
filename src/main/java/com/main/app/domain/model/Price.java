@@ -24,8 +24,8 @@ public class Price extends AbstractEntity {
     @ManyToOne
     private Clinic clinic;
 
-    public Price (String description, double price, Clinic clinic) {
-        this.description  =description;
+    public Price(String description, double price, Clinic clinic) {
+        this.description = description;
         this.price = price;
         this.clinic = clinic;
     }

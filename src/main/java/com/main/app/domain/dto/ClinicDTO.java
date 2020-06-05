@@ -10,8 +10,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class ClinicDTO
-{
+public class ClinicDTO {
     private Long id;
     private String name;
     private String address;

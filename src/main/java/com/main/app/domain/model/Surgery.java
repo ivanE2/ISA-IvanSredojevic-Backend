@@ -17,10 +17,10 @@ import java.time.Instant;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Surgery extends  AbstractEntity {
+public class Surgery extends AbstractEntity {
 
     private Instant date;
-    private  String description;
+    private String description;
 
     @ManyToOne
     private Hall hall;

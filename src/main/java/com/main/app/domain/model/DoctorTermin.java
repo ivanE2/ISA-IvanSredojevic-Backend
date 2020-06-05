@@ -14,7 +14,7 @@ import java.time.Instant;
 @NoArgsConstructor
 @Getter
 @Setter
-public class DoctorTermin extends AbstractEntity{
+public class DoctorTermin extends AbstractEntity {
 
     private Instant date;
 

@@ -16,7 +16,7 @@ public class HallDTO {
 
     public HallDTO(Hall hall) {
 
-        if(hall == null) {
+        if (hall == null) {
             return;
         }
 

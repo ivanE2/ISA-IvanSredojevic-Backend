@@ -22,8 +22,6 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * System security configuration, the custom implementation of
  * the WebSecurityConfigurerAdapter class.
- *
- *
  */
 @Configuration
 @EnableWebSecurity
@@ -51,8 +49,8 @@ public class OAuth2SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public PasswordEncoder encoder(){
-        return  new BCryptPasswordEncoder();
+    public PasswordEncoder encoder() {
+        return new BCryptPasswordEncoder();
     }
 
     @Override

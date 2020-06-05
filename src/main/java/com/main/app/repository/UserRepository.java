@@ -11,15 +11,19 @@ import java.util.Optional;
 
 /**
  * JPA repository for management of the User entity.
- *
  */
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
     Optional<User> findOneByEmail(String email);
+
     Optional<User> findOneByRegistrationToken(String token);
+
     User save(User user);
+
     Optional<User> findOneByResetTokenAndResetTokenExpirationDateAfter(String resetToken, Timestamp now);
+
     Optional<User> findOneById(Long id);
+
     Page<User> findAllByAdminRegistrationConfirmed(boolean isConfirmed, Pageable pageable);
 }

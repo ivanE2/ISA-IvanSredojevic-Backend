@@ -21,7 +21,7 @@ public class Appointment extends AbstractEntity {
     private Instant date;
     private double price;
     private boolean isTaken;
-    private  String description;
+    private String description;
 
     private boolean adminAccepted;
     private boolean patientAccepted;
