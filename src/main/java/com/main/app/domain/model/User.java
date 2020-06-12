@@ -2,6 +2,7 @@ package com.main.app.domain.model;
 
 import com.main.app.domain.dto.UserDTO;
 import com.main.app.domain.model.AbstractEntity;
+import com.main.app.domain.model.Clinic;
 import com.main.app.enums.Role;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,6 +12,10 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.Instant;
 
+
+/**
+ * The user entity representing all users of the system.
+ */
 @Entity
 @NoArgsConstructor
 @Getter
@@ -57,6 +62,9 @@ public class User extends AbstractEntity {
     private double rateSum;
 
     private double averageRate;
+
+    @ManyToOne
+    private Clinic clinic;
 
     public User(@NotNull String password, @NotNull String email, @NotNull String name, @NotNull String surname) {
         this.password = password;
