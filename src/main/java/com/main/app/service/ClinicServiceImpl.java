@@ -48,9 +48,9 @@ public class ClinicServiceImpl implements ClinicService {
 
         List<Clinic> clinics = new ArrayList<>();
 
-        for(Appointment a: appointments) {
+        for (Appointment a : appointments) {
 
-            if(clinicExists(clinics, a.getClinic())) {
+            if (clinicExists(clinics, a.getClinic())) {
                 continue;
             }
 
@@ -62,9 +62,9 @@ public class ClinicServiceImpl implements ClinicService {
 
     private boolean clinicExists(List<Clinic> clinics, Clinic clinic) {
 
-        for(Clinic c: clinics) {
+        for (Clinic c : clinics) {
 
-            if(c.getId() == clinic.getId()) {
+            if (c.getId() == clinic.getId()) {
                 return true;
             }
         }

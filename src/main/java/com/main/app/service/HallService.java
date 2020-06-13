@@ -8,5 +8,6 @@ import java.util.List;
 
 public interface HallService {
     List<Hall> findAllByClinic(Clinic clinic, Pageable pageable);
+
     Hall save(Hall hall);
 }

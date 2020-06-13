@@ -16,10 +16,8 @@ import java.util.List;
 
 /**
  * REST controller exposing API for register drivers and customers.
- *
+ * <p>
  * URL : /user
- *
- *
  */
 @RestController
 @RequestMapping("/api/user")
@@ -45,7 +43,7 @@ public class UserController {
     }
 
 
-    @GetMapping(path="/current")
+    @GetMapping(path = "/current")
     public ResponseEntity<UserDTO> getCurrentUser() {
         return new ResponseEntity<>(
                 currentUserService.getCurrentUserDTO(),
@@ -53,7 +51,7 @@ public class UserController {
         );
     }
 
-    @GetMapping(path="/unconfirmedUsers")
+    @GetMapping(path = "/unconfirmedUsers")
     public ResponseEntity<Entities> getUnconfirmedUsers(Pageable page) {
         Entities result = new Entities();
 
@@ -65,52 +63,51 @@ public class UserController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @PostMapping(path="/confirmUser/{id}")
+    @PostMapping(path = "/confirmUser/{id}")
     public ResponseEntity<UserDTO> confirmUser(@PathVariable Long id) {
 
         User user = userService.confirmUser(id);
 
-        if(user == null) {
+        if (user == null) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>(new UserDTO(user), HttpStatus.OK);
     }
 
-    @PostMapping(path="/declineUser/{id}/{message}")
+    @PostMapping(path = "/declineUser/{id}/{message}")
     public ResponseEntity<UserDTO> declineUser(@PathVariable Long id, @PathVariable String message) {
 
         User user = userService.declineUser(id, message);
 
-        if(user == null) {
+        if (user == null) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>(new UserDTO(user), HttpStatus.OK);
     }
 
-    @PostMapping(path="/")
+    @PostMapping(path = "/")
     public ResponseEntity<UserDTO> register(@RequestBody UserDTO userDTO) {
 
         User saved = userService.register(new User(userDTO));
 
-        if(saved == null) {
+        if (saved == null) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
 
         return new ResponseEntity<>(new UserDTO(saved), HttpStatus.OK);
     }
 
-    @PostMapping(path="/activate/{token}")
+    @PostMapping(path = "/activate/{token}")
     public ResponseEntity<UserDTO> activate(@PathVariable String token) {
 
-        if(!userService.aktivate(token))
-        {
+        if (!userService.aktivate(token)) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
 
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
 
-    @PostMapping(path="/edit")
+    @PostMapping(path = "/edit")
     public ResponseEntity<UserDTO> editUser(@RequestBody UserDTO userDTO) {
 
         User user = currentUserService.getCurrentUser().get();

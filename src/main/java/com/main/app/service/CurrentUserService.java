@@ -7,11 +7,10 @@ import java.util.Optional;
 
 /**
  * The service used for getting current user.
- *
- *
  */
 public interface CurrentUserService {
 
     Optional<User> getCurrentUser();
+
     UserDTO getCurrentUserDTO();
 }

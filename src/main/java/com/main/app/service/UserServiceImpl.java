@@ -22,8 +22,6 @@ import java.util.Optional;
 
 /**
  * The implementation of the service used for management of the User data.
- *
- *
  */
 @Service
 public class UserServiceImpl implements UserService {
@@ -83,7 +81,7 @@ public class UserServiceImpl implements UserService {
 
         Optional<User> databaseUser = userRepository.findOneByEmail(user.getEmail());
 
-        if(databaseUser.isPresent()) {
+        if (databaseUser.isPresent()) {
             return null;
         }
 
@@ -100,7 +98,7 @@ public class UserServiceImpl implements UserService {
 
         Optional<User> databaseUser = userRepository.findOneByRegistrationToken(token);
 
-        if(!databaseUser.isPresent()) {
+        if (!databaseUser.isPresent()) {
             return false;
         }
 
@@ -119,7 +117,7 @@ public class UserServiceImpl implements UserService {
 
         Optional<User> user = userRepository.findOneById(id);
 
-        if(!user.isPresent()) {
+        if (!user.isPresent()) {
             return null;
         }
 
@@ -143,7 +141,7 @@ public class UserServiceImpl implements UserService {
 
         Optional<User> user = userRepository.findOneById(id);
 
-        if(!user.isPresent()) {
+        if (!user.isPresent()) {
             return null;
         }
 
@@ -167,9 +165,9 @@ public class UserServiceImpl implements UserService {
 
         List<User> doctors = new ArrayList<>();
 
-        for(Appointment a: appointments) {
+        for (Appointment a : appointments) {
 
-            if(doctorExists(doctors, a.getDoctor())) {
+            if (doctorExists(doctors, a.getDoctor())) {
                 continue;
             }
 
@@ -181,9 +179,9 @@ public class UserServiceImpl implements UserService {
 
     private boolean doctorExists(List<User> users, User doctor) {
 
-        for(User u: users) {
+        for (User u : users) {
 
-            if(u.getId() == doctor.getId()) {
+            if (u.getId() == doctor.getId()) {
                 return true;
             }
         }

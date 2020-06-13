@@ -30,7 +30,7 @@ public class AppointmentController {
         this.clinicRepository = clinicRepository;
     }
 
-    @GetMapping(path="/")
+    @GetMapping(path = "/")
     public ResponseEntity<Entities> findAllByClinic(Pageable pageable, @RequestParam(name = "clinicId") Long clinicId) {
 
         Clinic clinic = clinicRepository.findById(clinicId).get();
@@ -41,7 +41,7 @@ public class AppointmentController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @GetMapping(path="/patient")
+    @GetMapping(path = "/patient")
     public ResponseEntity<Entities> findAllByPatient(Pageable pageable) {
 
         Entities result = new Entities();
@@ -50,7 +50,7 @@ public class AppointmentController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @GetMapping(path="/patient/history")
+    @GetMapping(path = "/patient/history")
     public ResponseEntity<Entities> findAllByPatientHistory(Pageable pageable) {
 
         Entities result = new Entities();
@@ -71,14 +71,14 @@ public class AppointmentController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @PostMapping(path="/")
+    @PostMapping(path = "/")
     public ResponseEntity<AppointmentDTO> add(@RequestBody AppointmentDTO appointmentDTO) {
 
         Appointment saved = appointmentService.save(new Appointment(appointmentDTO));
         return new ResponseEntity<>(new AppointmentDTO(saved), HttpStatus.OK);
     }
 
-    @PostMapping(path="/fromTermin/{terminId}")
+    @PostMapping(path = "/fromTermin/{terminId}")
     public ResponseEntity<AppointmentDTO> fromTermin(@PathVariable long terminId) {
 
         Appointment appointment = appointmentService.createFromTermin(terminId);
@@ -88,8 +88,7 @@ public class AppointmentController {
 
     @PostMapping(path = "/approve/{appointmentId}/{terminId}/{hallId}")
     public ResponseEntity<AppointmentDTO> approveAppointment(@PathVariable long appointmentId, @PathVariable long terminId,
-                                                             @PathVariable long hallId)
-    {
+                                                             @PathVariable long hallId) {
         Appointment appointment = appointmentService.approveAppointment(appointmentId, terminId, hallId);
 
         return new ResponseEntity<>(new AppointmentDTO(appointment), HttpStatus.OK);

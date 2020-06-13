@@ -31,9 +31,9 @@ public class DoctorTerminServiceImpl implements DoctorTerminService {
         List<DoctorTermin> termins = this.findAllByType(type, date, city, null, "");
         List<Clinic> clinics = new ArrayList<Clinic>();
 
-        for(DoctorTermin termin: termins) {
+        for (DoctorTermin termin : termins) {
 
-            if(!this.isContainsClinic(clinics, termin.getDoctor().getClinic())) {
+            if (!this.isContainsClinic(clinics, termin.getDoctor().getClinic())) {
                 termin.getDoctor().getClinic().setPrice(termin.getPrice());
                 clinics.add(termin.getDoctor().getClinic());
             }
@@ -44,8 +44,8 @@ public class DoctorTerminServiceImpl implements DoctorTerminService {
 
     public boolean isContainsClinic(List<Clinic> clinics, Clinic clinic) {
 
-        for(Clinic compareClinic: clinics) {
-            if(compareClinic.getId() == clinic.getId()) {
+        for (Clinic compareClinic : clinics) {
+            if (compareClinic.getId() == clinic.getId()) {
                 return true;
             }
         }
@@ -65,30 +65,30 @@ public class DoctorTerminServiceImpl implements DoctorTerminService {
         Instant instantDay = day.atStartOfDay(ZoneId.of("Europe/Paris")).toInstant();
         Instant instantTomorrow = tomorrow.atStartOfDay(ZoneId.of("Europe/Paris")).toInstant();
 
-        if(city.equals("null")) {
+        if (city.equals("null")) {
             city = "";
         }
 
-        if(name == null || name.equals("null")) {
+        if (name == null || name.equals("null")) {
             name = "";
         }
 
-        for(DoctorTermin termin: termins) {
+        for (DoctorTermin termin : termins) {
 
             Clinic compareClinic = termin.getDoctor().getClinic();
             String compareCity = termin.getDoctor().getClinic().getCity().toLowerCase();
             String compareName = termin.getDoctor().getName().toLowerCase();
             String compareSurname = termin.getDoctor().getSurname().toLowerCase();
 
-            if(!termin.isFree()) {
+            if (!termin.isFree()) {
                 continue;
             }
 
-            if(!(compareName.contains(name.toLowerCase()) || compareSurname.contains(name.toLowerCase()))) {
+            if (!(compareName.contains(name.toLowerCase()) || compareSurname.contains(name.toLowerCase()))) {
                 continue;
             }
 
-            if(termin.getDate().toEpochMilli() > instantDay.toEpochMilli()
+            if (termin.getDate().toEpochMilli() > instantDay.toEpochMilli()
                     && (clinic == null || compareClinic.getId() == clinic.getId()) &&
                     termin.getDate().toEpochMilli() < instantTomorrow.toEpochMilli()
                     && compareCity.contains(city.toLowerCase())) {
@@ -105,9 +105,9 @@ public class DoctorTerminServiceImpl implements DoctorTerminService {
 
         List<DoctorTermin> result = new ArrayList<>();
 
-        for(DoctorTermin termin: termins) {
+        for (DoctorTermin termin : termins) {
 
-            if(termin.getDoctor().getClinic().getId() == clinicId) {
+            if (termin.getDoctor().getClinic().getId() == clinicId) {
                 result.add(termin);
             }
 

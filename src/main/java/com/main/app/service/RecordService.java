@@ -8,5 +8,6 @@ import org.springframework.data.domain.Pageable;
 public interface RecordService {
 
     Page<Record> findAllByPatient(User patient, Pageable pageable);
+
     Record save(Record record);
 }

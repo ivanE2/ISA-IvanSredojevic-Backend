@@ -29,9 +29,9 @@ public class HallTerminServiceImpl implements HallTerminService {
 
         List<HallTermin> termins = new ArrayList<HallTermin>();
 
-        for(HallTermin termin: terminsDatabase) {
+        for (HallTermin termin : terminsDatabase) {
 
-            if(termin.getHall().getClinic().getId() == clinic.getId()) {
+            if (termin.getHall().getClinic().getId() == clinic.getId()) {
                 termins.add(termin);
             }
         }
@@ -44,9 +44,9 @@ public class HallTerminServiceImpl implements HallTerminService {
         Instant instantDay = day.atStartOfDay(ZoneId.of("Europe/Paris")).toInstant();
         Instant instantTomorrow = tomorrow.atStartOfDay(ZoneId.of("Europe/Paris")).toInstant();
 
-        for(HallTermin termin: termins) {
+        for (HallTermin termin : termins) {
 
-            if(termin.getDate().toEpochMilli() > instantDay.toEpochMilli() &&
+            if (termin.getDate().toEpochMilli() > instantDay.toEpochMilli() &&
                     termin.getDate().toEpochMilli() < instantTomorrow.toEpochMilli()) {
                 result.add(termin);
             }
@@ -60,9 +60,9 @@ public class HallTerminServiceImpl implements HallTerminService {
 
         List<HallTermin> result = new ArrayList<>();
 
-        for(HallTermin termin: termins) {
+        for (HallTermin termin : termins) {
 
-            if(termin.getHall().getClinic().getId() == clinicId) {
+            if (termin.getHall().getClinic().getId() == clinicId) {
                 result.add(termin);
             }
         }

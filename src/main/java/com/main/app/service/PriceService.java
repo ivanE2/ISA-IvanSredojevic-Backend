@@ -9,5 +9,6 @@ import java.util.List;
 public interface PriceService {
 
     List<Price> findAllByClinic(Clinic clinic, Pageable pageable);
+
     Price save(Price price);
 }

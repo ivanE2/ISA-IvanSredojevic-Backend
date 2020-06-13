@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface DoctorTerminRepository extends JpaRepository<DoctorTermin, Long> {
 
-     List<DoctorTermin> findAllByType(AppointmentType type);
-     List<DoctorTermin> findAllByFree(boolean free);
+    List<DoctorTermin> findAllByType(AppointmentType type);
+
+    List<DoctorTermin> findAllByFree(boolean free);
 }

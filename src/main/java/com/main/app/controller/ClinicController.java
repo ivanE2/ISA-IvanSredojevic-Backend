@@ -24,7 +24,7 @@ public class ClinicController {
         this.clinicService = clinicService;
     }
 
-    @GetMapping(path="/")
+    @GetMapping(path = "/")
     public ResponseEntity<Entities> findAllByPatient(Pageable pageable) {
 
 
@@ -38,7 +38,7 @@ public class ClinicController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @PostMapping(path="/")
+    @PostMapping(path = "/")
     public ResponseEntity<ClinicDTO> add(@RequestBody ClinicDTO clinicDTO) {
 
         Clinic saved = clinicService.save(new Clinic(clinicDTO));

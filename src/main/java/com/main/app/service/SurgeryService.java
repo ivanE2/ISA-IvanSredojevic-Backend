@@ -8,5 +8,6 @@ import org.springframework.data.domain.Pageable;
 public interface SurgeryService {
 
     Page<Surgery> findAllByPatient(User patient, Pageable pageable);
+
     Surgery save(Surgery surgery);
 }

@@ -25,7 +25,7 @@ public class PriceController {
         this.clinicRepository = clinicRepository;
     }
 
-    @GetMapping(path="/")
+    @GetMapping(path = "/")
     public ResponseEntity<Entities> findAllByClinic(Pageable pageable, @RequestParam(name = "clinicId") Long clinicId) {
 
         Clinic clinic = clinicRepository.findById(clinicId).get();
@@ -36,7 +36,7 @@ public class PriceController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @PostMapping(path="/")
+    @PostMapping(path = "/")
     public ResponseEntity<PriceDTO> add(@RequestBody PriceDTO priceDTO) {
 
         Price saved = priceService.save(new Price(priceDTO));

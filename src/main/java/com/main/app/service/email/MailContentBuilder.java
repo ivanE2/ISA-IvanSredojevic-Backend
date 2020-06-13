@@ -10,14 +10,13 @@ import org.thymeleaf.context.Context;
  * The service used for building email body with email templates.
  *
  * @author simona
- *
  */
 @Service
 public class MailContentBuilder {
 
     private static final String TLT_TEMPLATE_NAME = "textLinkTextTemplate";
 
-    private static final String  TLT_TEMPLATE_MESSAGE_BEFORE_PARAM = "messageBefore";
+    private static final String TLT_TEMPLATE_MESSAGE_BEFORE_PARAM = "messageBefore";
 
     private static final String TLT_TEMPLATE_MESSAGE_AFTER_PARAM = "messageAfter";
 

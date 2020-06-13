@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 /**
  * The client for sending emails.
- *
  */
 @Service
 public class EmailClient {

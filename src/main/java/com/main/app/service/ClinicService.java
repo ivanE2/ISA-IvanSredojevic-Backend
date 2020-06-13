@@ -9,7 +9,10 @@ import java.util.List;
 public interface ClinicService {
 
     Page<Clinic> findAll(Pageable pageable);
+
     Clinic save(Clinic save);
+
     List<Clinic> getRateList(Pageable page);
+
     Clinic rate(long clinicId, int rate);
 }

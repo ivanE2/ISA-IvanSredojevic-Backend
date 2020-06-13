@@ -25,7 +25,7 @@ public class RecordController {
         this.userService = userService;
     }
 
-    @GetMapping(path="/")
+    @GetMapping(path = "/")
     public ResponseEntity<Entities> findAllByPatient(Pageable pageable) {
 
         Entities result = new Entities();
@@ -37,7 +37,7 @@ public class RecordController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @PostMapping(path="/")
+    @PostMapping(path = "/")
     public ResponseEntity<RecordDTO> add(@RequestBody RecordDTO recordDTO) {
 
         Record saved = recordService.save(new Record(recordDTO));

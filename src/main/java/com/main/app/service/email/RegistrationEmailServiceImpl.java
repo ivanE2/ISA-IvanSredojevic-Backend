@@ -5,8 +5,6 @@ import org.springframework.stereotype.Service;
 
 /**
  * The implementation of EmailService used for sending email to drivers for registration.
- *
- *
  */
 @Service
 public class RegistrationEmailServiceImpl implements RegistrationEmailService {

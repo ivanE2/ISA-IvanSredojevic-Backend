@@ -12,14 +12,19 @@ public interface AppointmentService {
 
 
     List<Appointment> findAllByClinic(Clinic clinic, Pageable pageable);
+
     List<Appointment> findAllByPatient(User patient, Pageable pageable);
+
     List<Appointment> findAllByPatientHistory(User patient, Pageable pageable);
 
     Page<Appointment> findAllByAdminAccepted(boolean adminAccepted, Pageable pageable);
 
     Appointment save(Appointment appointment);
+
     Appointment createFromTermin(long terminId);
+
     Appointment approveAppointment(long appointmentId, long terminId, long hallId);
+
     Appointment changePatientStatus(long appointmentId, boolean status);
 
 }

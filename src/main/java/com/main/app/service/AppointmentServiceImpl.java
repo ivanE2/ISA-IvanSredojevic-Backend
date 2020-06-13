@@ -66,7 +66,7 @@ public class AppointmentServiceImpl implements AppointmentService {
 
         DoctorTermin termin = doctorTerminRepository.findById(terminId).get();
 
-        if(!termin.isFree()) {
+        if (!termin.isFree()) {
             return null;
         }
 
@@ -104,9 +104,9 @@ public class AppointmentServiceImpl implements AppointmentService {
         DoctorTermin doctorTermin = doctorTerminRepository.findById(terminId).get();
         HallTermin hallTermin = hallTerminRepository.findById(hallId).get();
 
-        if(appointment.getTermin().getId() == doctorTermin.getId()) {
+        if (appointment.getTermin().getId() == doctorTermin.getId()) {
 
-            if(!hallTermin.isFree()) {
+            if (!hallTermin.isFree()) {
                 return null;
             }
 
@@ -121,14 +121,13 @@ public class AppointmentServiceImpl implements AppointmentService {
             this.sendEmail(appointment);
 
             return appointment;
-        }
-        else {
+        } else {
 
-            if(!doctorTermin.isFree()) {
+            if (!doctorTermin.isFree()) {
                 return null;
             }
 
-            if(!hallTermin.isFree()) {
+            if (!hallTermin.isFree()) {
                 return null;
             }
 
@@ -170,7 +169,7 @@ public class AppointmentServiceImpl implements AppointmentService {
 
         appointment.setPatientAccepted(status);
 
-        if(!status) {
+        if (!status) {
             appointment.setAdminAccepted(false);
 
             DoctorTermin termin = appointment.getTermin();

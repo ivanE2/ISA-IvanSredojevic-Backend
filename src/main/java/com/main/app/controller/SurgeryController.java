@@ -26,7 +26,7 @@ public class SurgeryController {
         this.userService = userService;
     }
 
-    @GetMapping(path="/")
+    @GetMapping(path = "/")
     public ResponseEntity<Entities> findAllByPatient(Pageable pageable) {
 
         Entities result = new Entities();
@@ -39,7 +39,7 @@ public class SurgeryController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @PostMapping(path="/")
+    @PostMapping(path = "/")
     public ResponseEntity<SurgeryDTO> add(@RequestBody SurgeryDTO surgeryDTO) {
 
         Surgery saved = surgeryService.save(new Surgery(surgeryDTO));
